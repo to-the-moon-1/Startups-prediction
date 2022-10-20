@@ -21,10 +21,6 @@ class Customer(models.Model):
 
     funding_rounds = models.IntegerField(default=0)
 
-    # ROUND_CHOICES = (
-    #     (True, 'on'), (False, 'off')
-    # )
-
     round_a = models.BooleanField(max_length=7, default=False)
     round_b = models.BooleanField(max_length=7, default=False)
 

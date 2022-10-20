@@ -29,8 +29,6 @@ class CustomerForm(forms.ModelForm):
 
     funding_rounds = forms.IntegerField(label='Number of funding rounds', widget=forms.NumberInput(attrs={'class': 'input'}))
 
-    # choices = [(True, 'on'), (False, 'off')],
-
     round_a = forms.BooleanField(label='Round A funding', required=False,
                                  widget=forms.CheckboxInput(attrs={'class': 'checkbox new_checkbox'}))
     round_b = forms.BooleanField(label='Round B funding', required=False,

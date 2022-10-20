@@ -11,18 +11,14 @@
     <title>Status</title>
 </head>
 <body class="background">
-    <div class="wrapper wrapper_result">
+    <div class="wrapper_page wrapper_result">
         <div class="wrapper_content">
             <h2 class="title result_title">Result:</h2>
             <p class="result_text">Based on the analysis of more than a thousand different startups, the following was determined:</p>
             <br/>
             <p class="result_text">{{ data }}</p>
             <br/>
-{#            {% if %}#}
-
-{#            {% endif %}#}
             <p class="result_text">In the end, regardless of the prediction, everything is in your hands.</p>
-{#            <a href="{{request.META.HTTP_REFERER}}">Go back</a>#}
             <button class="button main_button result_button" onClick="javascript:history.go(-1);">Back to form</button>
         </div>
     </div>

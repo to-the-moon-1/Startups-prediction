@@ -23,9 +23,6 @@ def status(X):
         y_pred_status = model_status.predict(X)
         y_pred_top = model_top.predict(X)
 
-        pred_status = 'Active' if y_pred_status == 0 else 'Closed'
-        pred_top = 'Top' if y_pred_top == 1 else 'No top'
-
         active = 'Your startup will exist for more than 6 years (average closing time)'
         active_top = 'be in the top-500 of the most successful startups during this time.'
         closed = 'Your startup won\'t exist for more than 6 years (average closing time)'
@@ -50,7 +47,6 @@ def FormView(request):
         form = CustomerForm(request.POST or None)
 
         if form.is_valid():
-            # print('form is valid')
 
             city = form.cleaned_data['city']
             category = form.cleaned_data['category']
@@ -81,32 +77,8 @@ def FormView(request):
             df['has_roundA'] = [1 if round_a == 'on' else 0]
             df['has_roundB'] = [1 if round_b == 'on' else 0]
 
-            if city == 'is_CA':
-                new_city = 'California'
-            elif city == 'is_NY':
-                new_city = 'New York'
-            elif city == 'is_MA':
-                new_city = 'Massachusetts'
-            elif city == 'is_TX':
-                new_city = 'Texas'
-            else:
-                new_city = 'Other state'
-
-            data = {
-                'state': new_city,
-                'category': category,
-                'avg_members': int(avg_members),
-                'relationships': int(relationships),
-                'milestones': int(milestones),
-                'funding_rounds': int(funding_rounds),
-                'has_roundA': 'Round A' if round_a == 'on' else 'No round A',
-                'has_roundB': 'Round B' if round_a == 'on' else 'No round B',
-            }
-
             result = status(df)
             return render(request, 'status.html', {'data': result})
-        # else:
-        #     print(form.errors)
 
     form = CustomerForm()
     return render(request, 'form.html', {'form': form})
