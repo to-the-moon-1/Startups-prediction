@@ -18,8 +18,8 @@ class CustomerView(viewsets.ModelViewSet):
 
 def status(X):
     try:
-        model_status = pickle.load(open('/Users/dianavoloshyn/Documents/web/python-first/ai/predicted_status.sav', 'rb'))
-        model_top = pickle.load(open('/Users/dianavoloshyn/Documents/web/python-first/ai/predicted_top.sav', 'rb'))
+        model_status = pickle.load(open('predicted_status.sav', 'rb'))
+        model_top = pickle.load(open('predicted_top.sav', 'rb'))
         y_pred_status = model_status.predict(X)
         y_pred_top = model_top.predict(X)
 
